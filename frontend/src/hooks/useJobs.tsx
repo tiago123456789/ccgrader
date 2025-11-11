@@ -95,7 +95,8 @@ export default function useJobs() {
             status: data.status,
             updatedAt: updatedAt,
             totalSteps: data.totalSteps,
-            currentStep: data.currentStep
+            currentStep: data.currentStep,
+            errorMessage: data?.errorMessage || ""
         }
 
         // @ts-ignore
@@ -122,7 +123,8 @@ export default function useJobs() {
                         status: data.status,
                         updatedAt: updatedAt,
                         totalSteps: data.totalSteps,
-                        currentStep: data.currentStep
+                        currentStep: data.currentStep,
+                        errorMessage: data?.errorMessage || ""
                     }
                 }
 
@@ -133,7 +135,11 @@ export default function useJobs() {
 
 
     const monitorJobs = async () => {
-        const queryRegisters = query(collection(db, 'image-process-jobs'), orderBy('createdAt', 'desc'), limit(1));
+        const queryRegisters = query(
+            collection(db, 'image-process-jobs'), 
+            orderBy('createdAt', 'desc'), 
+            limit(10)
+        );
         return onSnapshot(queryRegisters, (snapshot) => {
             snapshot.docChanges().forEach((change) => {
                 if (change.type === "added" && !mapAlreadyExists[change.doc.id]) {

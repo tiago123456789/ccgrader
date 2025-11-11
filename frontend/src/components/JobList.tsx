@@ -33,6 +33,10 @@ export function JobList({ jobs, isLoading, downloadFinalImage }: JobListProps) {
     }
   };
 
+  const isFailed = (job: ImageJob) => {
+    return job.status === 'failed';
+  }
+
   if (isLoading) {
     return <Loading />
   }
@@ -87,12 +91,12 @@ export function JobList({ jobs, isLoading, downloadFinalImage }: JobListProps) {
                     <PopoverTrigger asChild>
                       <Badge
                         variant={getStatusBadgeVariant(job.status)}
-                        className="capitalize"
+                        className={`capitalize ${isFailed(job) ? 'cursor-pointer' : ''}`}
                       >
                         {statusInfo.label}
                       </Badge>
                     </PopoverTrigger>
-                    {job.status == "failed" && (
+                    {isFailed(job) && (
                       <PopoverContent>
                         <Alert className="bg-red-500 text-white">
                           <AlertDescription>
