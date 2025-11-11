@@ -6,6 +6,8 @@ import axios from 'axios';
 import fs from 'fs';
 import { randomUUID } from "crypto";
 
+const TIMEOUT_30SECONDS = 30000;
+
 class WatermarkModification implements IModification {
 
     private data: BaseModificationPayload | null = null;
@@ -61,6 +63,7 @@ class WatermarkModification implements IModification {
             method: 'get',
             url,
             responseType: 'stream',
+            timeout: TIMEOUT_30SECONDS,
         })
 
         if (response.status !== 200) {
