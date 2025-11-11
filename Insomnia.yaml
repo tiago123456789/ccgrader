@@ -1,0 +1,123 @@
+type: collection.insomnia.rest/5.0
+name: CCG
+meta:
+  id: wrk_5780b937ecc2498fb6714aace687b098
+  created: 1762479555732
+  modified: 1762479555732
+collection:
+  - url: http://localhost:3000/api/jobs
+    name: Create image process job
+    meta:
+      id: req_e1b626f21cb34296ad6095be3d49b10f
+      created: 1762481919681
+      modified: 1762545056741
+      isPrivate: false
+      sortKey: -1762481919682
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"url": "https://images.pexels.com/photos/1379640/pexels-photo-1379640.jpeg",
+        	"changesToApply": [
+        		{ "action": "watermark", "position": "south", "watermarkFileUrl": "https://www.shutterstock.com/shutterstock/photos/2528727077/display_1500/stock-photo-pokemon-characters-in-front-of-rainbow-2528727077.jpg" }
+        	]
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/jobs?lastJobId=STAcFyK2EQzg9LNQG9tv
+    name: List the jobs
+    meta:
+      id: req_e6be09d6938e4086a9c10ebd865b3b98
+      created: 1762483101693
+      modified: 1762718276135
+      isPrivate: false
+      sortKey: -1761900851295.5
+    method: GET
+    body:
+      mimeType: application/json
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/jobs/i2sadTCV7s5WPTZEEUt3
+    name: Get job by id
+    meta:
+      id: req_e9a7ff74d9aa4d26b93d465a484b97ee
+      created: 1762484341611
+      modified: 1762538745991
+      isPrivate: false
+      sortKey: -1761610317102.25
+    method: GET
+    body:
+      mimeType: application/json
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/jobs/o9wooxBSvR4ttAYmdXgx/signed-url
+    name: Get signed url by id of job
+    meta:
+      id: req_c6f6930157c84f3eb3995f72b37fd0d8
+      created: 1762538473720
+      modified: 1762544409647
+      isPrivate: false
+      sortKey: -1761465050005.625
+    method: GET
+    body:
+      mimeType: application/json
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_90f7dff149af9b326eb23368ac94a58b23d85260
+    created: 1762479555977
+    modified: 1762479555977
+environments:
+  name: Base Environment
+  meta:
+    id: env_90f7dff149af9b326eb23368ac94a58b23d85260
+    created: 1762479555974
+    modified: 1762479555973
+    isPrivate: false

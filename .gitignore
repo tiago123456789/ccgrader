@@ -1,0 +1,10 @@
+.qodo
+backend/node_modules
+backend/dist
+backend/fcredential.json
+backend/.env
+
+frontend/node_modules
+frontend/dist
+frontend/firebase.json
+frontend/.env
