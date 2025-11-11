@@ -13,7 +13,7 @@ import { logger } from '../config/logger';
 import { CreateJobRequest } from '../types/create-job-request';
 
 const EXPIRATION_TIME_MINUTES = 1;
-
+const TIMEOUT_30SECONDS = 30000;
 export class ImageProcessService {
 
   private mapChanges: Map<string, IModification> = new Map();
@@ -81,6 +81,7 @@ export class ImageProcessService {
       method: 'get',
       url,
       responseType: 'stream',
+      timeout: TIMEOUT_30SECONDS,
     })
 
     if (response.status !== 200) {
