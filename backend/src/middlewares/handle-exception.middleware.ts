@@ -1,8 +1,9 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { logger } from "../config/logger";
 
 export default function handleExceptionMiddleware(
-    err: Error, _: Request, res: Response,
+    // @ts-ignore
+    err: Error, _: Request, res: Response, next: NextFunction
 ): void {
 
     switch (err.name) {
