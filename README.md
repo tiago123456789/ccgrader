@@ -14,7 +14,7 @@
     - TypeScript
     - Vite
     - TailwindCSS
-    - Firebase(database)
+    - Firebase(realtime to listen the database changes)
     - Docker
     - Docker compose
 
@@ -42,6 +42,9 @@
     - Implement solution like AWS show on this link:  https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html
     - Or consider replace bullmq + redis to SQS where you can plugin a Lambda function to process the messages.
 - Instead show the logs from backend on console, send the logs to Cloudwatch where you can centralize the logs and create alerts if something goes wrong. For example: if the application start to generate a lot of logs with level error, you can create an alert to notify the team via slack or email. PS: you can do this easier using Winston library and change only the logger configuration.
+- Block push to **master** branch.
+- Add Github actions pipeline CI to run tests when open PR, so if tests are not passing, you can block the merge to **master** branch.
+- Add Github actions pipeline CD to deploy the application to production environment.
 
 
 ## Extra points
