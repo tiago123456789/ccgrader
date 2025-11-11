@@ -49,3 +49,52 @@
 - To test the endpoint you can import the **Insomnia.yaml** file on Insomnia
 - Access the bull board on http://localhost:3000/bull-board to monitor the queues and how many messages are on queue
 - To test the backend code, execute the command `npm run test` on backend folder
+
+
+## BACKEND FOLDER STRUCTURE
+
+```
+- src
+--- adapters    // The code to connect with external services
+--- config      // The configuration of the application
+--- constants   // The constants of the application
+--- controllers // The controllers of the application
+--- exception   // The exception of the application
+--- factory     // The factory of the application
+--- jobs        // The jobs(queue consumers) of the application
+--- models      // The models of the application represents the database collection
+--- middlewares // The middlewares of the application
+--- routes      // The routes of the application
+--- services    // The services of the application where contains the business logic
+--- types       // The types of the application
+--- validations // The validations of the application
+```
+
+## BACKEND ENVS
+
+```
+CORS_ORIGIN_ALLOWED=http://localhost:8080 // The origin allowed to make requests to the backend. PS: avoid any client to make request to backend if it is not allowed.
+
+REDIS_HOST=redis // The host of the redis container
+REDIS_PORT=6379 // The port of the redis container
+REDIS_PASSWORD= // The password of the redis container
+REDIS_DATABASE=0 // The database of the redis container
+```
+
+## FRONTEND FOLDER STRUCTURE
+
+```
+- src
+--- components // The components of the application
+--- hooks      // The hooks of the application where make interactions with the backend and manage the state of the application
+--- pages      // The pages of the application
+--- services   // The services of the application where contains code interaction with external services, such as Firebase
+--- types      // The types of the application
+```
+
+## FRONTEND ENVS
+
+```
+VITE_API_URL=http://localhost:3000 // The url from backend api
+```
+
